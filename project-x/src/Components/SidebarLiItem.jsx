@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {data} from './SidebarData'
+import {data} from '../JSON-data/SidebarData'
 
 const SidebarLiItem = () => {
     return (
