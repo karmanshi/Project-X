@@ -11,7 +11,7 @@ const Users = () => {
     useEffect(() => {
         document.title = 'Users List'
         setUserList([...userData])
-    }, [userList])
+    }, [])
 
     
 
@@ -48,12 +48,12 @@ const Users = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {userList.map((element)=>{ return <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <td className="px-6 py-4"><Link to={element.id}>{element.id}</Link></td>
+                        {userList.map((element)=>{ return <tr key={element.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <td className="px-6 py-4"><Link to={`${element.id}`}>{element.id}</Link></td>
                             <td className="px-6 py-4">{element.fullName}</td>
                             <td className="px-6 py-4">{element.email}</td>
                             <td className="px-6 py-4">{element.userName}</td>
-                            <td className="px-6 py-4">{element.isAdmin}</td>
+                            <td className="px-6 py-4">{`${element.isAdmin}`}</td>
                         
                         </tr>})}
                     
