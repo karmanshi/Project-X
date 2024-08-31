@@ -3,6 +3,7 @@ import { Outlet, Link } from 'react-router-dom'
 import BannerLogo from './BannerLogo'
 import Sidebar from './Sidebar'
 import ProfileBanner from './ProfileBanner'
+import BodyComponent from './BodyComponent'
 
 const Navigation = () => {
   return (
@@ -41,10 +42,14 @@ const Navigation = () => {
         </div>
         
       </nav>
-      <div >
+      <div className='flex'>
       <Sidebar/>
+      <div className='w-full h-full m-5 p-4  '>
       <Outlet />
       </div>
+      </div>
+      
+
     
     </>
 
