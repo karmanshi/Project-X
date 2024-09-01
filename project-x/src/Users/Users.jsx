@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { SearchField } from '../Components/Common/InputField'
 import { Button } from '../Components/Common/Button'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Heading from '../Components/Common/Heading'
 const Users = () => {
     const [userList, setUserList] = useState([])
+    let navigate = useNavigate()
 
     useEffect(() => {
         document.title = 'Users List'
@@ -13,6 +14,8 @@ const Users = () => {
         setUserList([...user_data])
 
     }, [])
+
+    
 
     return (
         <div className='w-full'>
@@ -22,7 +25,9 @@ const Users = () => {
                     <SearchField />
                 </div>
                 <div className='flex-2 flex justify-end'>
-                    <Button />
+                  <Link to="/users/add">
+                  <Button ButtonText="Add User"/>
+                  </Link>  
                 </div>
             </div>
             <div className="h-96 overflow-y-auto">
