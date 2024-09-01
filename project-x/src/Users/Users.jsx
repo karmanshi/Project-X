@@ -1,29 +1,28 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
-import { userData } from '../JSON-data/UserList'
 import { SearchField } from '../Components/Common/InputField'
 import { Button } from '../Components/Common/Button'
 import { Link } from 'react-router-dom'
 import Heading from '../Components/Common/Heading'
 const Users = () => {
-    const [userList, setUserList] =useState([])
+    const [userList, setUserList] = useState([])
 
     useEffect(() => {
         document.title = 'Users List'
-        setUserList([...userData])
-    }, [])
+        let user_data = JSON.parse(localStorage.getItem("UserList"))||[]
+        setUserList([...user_data])
 
-    
+    }, [])
 
     return (
         <div className='w-full'>
-            <Heading heading = "User List"/>
+            <Heading heading="User List" />
             <div className='flex my-3.5'>
                 <div className='flex-1 mb-2'>
-                    <SearchField/>
+                    <SearchField />
                 </div>
                 <div className='flex-2 flex justify-end'>
-                    <Button/>
+                    <Button />
                 </div>
             </div>
             <div className="h-96 overflow-y-auto">
@@ -48,15 +47,17 @@ const Users = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {userList.map((element)=>{ return <tr key={element.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <td className="px-6 py-4"><Link to={`${element.id}`}>{element.id}</Link></td>
-                            <td className="px-6 py-4">{element.fullName}</td>
-                            <td className="px-6 py-4">{element.email}</td>
-                            <td className="px-6 py-4">{element.userName}</td>
-                            <td className="px-6 py-4">{`${element.isAdmin}`}</td>
-                        
-                        </tr>})}
-                    
+                        {userList.map((element) => {
+                            return <tr key={element.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                <td className="px-6 py-4"><Link to={`${element.id}`}>{element.id}</Link></td>
+                                <td className="px-6 py-4">{element.fullName}</td>
+                                <td className="px-6 py-4">{element.email}</td>
+                                <td className="px-6 py-4">{element.userName}</td>
+                                <td className="px-6 py-4">{`${element.isAdmin}`}</td>
+
+                            </tr>
+                        })}
+
                     </tbody>
                 </table>
             </div>

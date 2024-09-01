@@ -5,6 +5,7 @@ import Navigation from './Components/Navigation';
 import BodyComponent from './Components/BodyComponent';
 import Users from './Users/Users';
 import UserDetail from './Users/UserDetail';
+import AddUser from './Users/AddUser';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/body" element={<BodyComponent />} />
           <Route path="/users/" element={<Users />} />
           <Route path="/users/:usersId" element={<UserDetail />} />
+          <Route path="/users/add" element={<AddUser />} />
         </Route>
       </Routes>
    </>
