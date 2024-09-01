@@ -14,7 +14,7 @@ const Navigation = () => {
           >
             <BannerLogo/>
             <span className="self-center text-white text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Expenses Tracker
+              Testing-Dashboard
             </span>
           </Link>
           

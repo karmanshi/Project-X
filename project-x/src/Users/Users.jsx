@@ -2,27 +2,35 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { SearchField } from '../Components/Common/InputField'
 import { Button } from '../Components/Common/Button'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Heading from '../Components/Common/Heading'
 const Users = () => {
     const [userList, setUserList] = useState([])
-    let navigate = useNavigate()
+    const [filterList, setFilterList] = useState([])
 
     useEffect(() => {
         document.title = 'Users List'
         let user_data = JSON.parse(localStorage.getItem("UserList"))||[]
-        setUserList([...user_data])
-
+        setUserList([...user_data]) 
+        setFilterList([...user_data])
     }, [])
 
-    
+    const handleSearch =(e)=>{
+        let searchVal = e.target.value
+        if (searchVal === "") { setFilterList(userList); return; }
+        const filterBySearch = userList.filter((item) => {
+            if (item.fullName.toLowerCase()
+                .includes(searchVal.toLowerCase())) { return item; }
+        })
+        setFilterList([...filterBySearch]);
+    }
 
     return (
         <div className='w-full'>
             <Heading heading="User List" />
             <div className='flex my-3.5'>
                 <div className='flex-1 mb-2'>
-                    <SearchField />
+                    <SearchField onChange={handleSearch} searchValue="Search......." />
                 </div>
                 <div className='flex-2 flex justify-end'>
                   <Link to="/users/add">
@@ -52,7 +60,7 @@ const Users = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {userList.map((element) => {
+                        {filterList.map((element) => {
                             return <tr key={element.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                 <td className="px-6 py-4"><Link to={`${element.id}`}>{element.id}</Link></td>
                                 <td className="px-6 py-4">{element.fullName}</td>
