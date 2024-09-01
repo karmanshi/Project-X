@@ -18,7 +18,7 @@ const AddUser = () => {
         setUpdateUser([...updateUser, data])
         localStorage.setItem('UserList', JSON.stringify([...updateUser, addUser]))
         navigate('/users/')
-
+                                         
 
     }
 

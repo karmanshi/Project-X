@@ -2,15 +2,15 @@ import React from 'react'
 import { useState ,useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import Heading from '../Components/Common/Heading'
-import { productData } from '../JSON-data/ProductData'
 
 const ProductDetails = () => {
     const {productId} = useParams()
     const [products, setProducts] = useState({})
 
-    useEffect((e) => {
+    useEffect(() => {
         document.title = 'Product Details'
-        productData.map((ele) => {
+        const save_product =JSON.parse(localStorage.getItem('ProductList'))||[]
+        save_product.map((ele) => {
             if (productId == ele.id) {
                 setProducts({ ...ele })
                 return ele

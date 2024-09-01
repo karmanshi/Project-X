@@ -3,7 +3,6 @@ import Heading from '../Components/Common/Heading'
 import { Link } from 'react-router-dom'
 import { Button } from '../Components/Common/Button'
 import { SearchField } from '../Components/Common/InputField'
-import { productData } from '../JSON-data/ProductData'
 
 
 const Products = () => {
@@ -11,8 +10,9 @@ const Products = () => {
     const [filterProduct,setFilterProduct] = useState([])
 
     useEffect(() => {
-        setProducts([...productData])
-        setFilterProduct([...productData])
+        let products_data = JSON.parse(localStorage.getItem('ProductList')) || []
+        setProducts([...products_data])
+        setFilterProduct([...products_data])
     }, [])
 
     const handleSearch = (e) =>{

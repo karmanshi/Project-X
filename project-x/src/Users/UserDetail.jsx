@@ -8,7 +8,7 @@ const UserDetail = () => {
 
     useEffect(() => {
         document.title = 'Users Details'
-        const savedData = JSON.parse(localStorage.getItem('UserList'));
+        const savedData = JSON.parse(localStorage.getItem('UserList'))||[]
         savedData.map((ele) => {
             if (usersId == ele.id) {
                 setUsers({ ...ele })
