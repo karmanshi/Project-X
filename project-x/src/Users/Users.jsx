@@ -4,6 +4,7 @@ import { SearchField } from '../Components/Common/InputField'
 import { Button } from '../Components/Common/Button'
 import { Link } from 'react-router-dom'
 import Heading from '../Components/Common/Heading'
+import DropDown from '../Components/Common/DropDown'
 const Users = () => {
     const [userList, setUserList] = useState([])
     const [filterList, setFilterList] = useState([])
@@ -13,7 +14,7 @@ const Users = () => {
         let user_data = JSON.parse(localStorage.getItem("UserList"))||[]
         setUserList([...user_data]) 
         setFilterList([...user_data])
-    }, [])
+    }, [userList])
 
     const handleSearch =(e)=>{
         let searchVal = e.target.value
@@ -24,6 +25,19 @@ const Users = () => {
         })
         setFilterList([...filterBySearch]);
     }
+
+    const handleDelete =(id)=>{
+        const copyData = userList.filter((item) => {
+            if (item.id != id) {
+                return item
+            }
+
+        })
+        setUserList([...copyData])
+        localStorage.setItem('UserList', JSON.stringify([...copyData]))
+    }
+
+
 
     return (
         <div className='w-full'>
@@ -57,6 +71,9 @@ const Users = () => {
                             <th scope="col" className="px-6 py-3">
                                 Is-Admin
                             </th>
+                            <th scope="col" className="px-6 py-3">
+                                
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,6 +84,7 @@ const Users = () => {
                                 <td className="px-6 py-4">{element.email}</td>
                                 <td className="px-6 py-4">{element.userName}</td>
                                 <td className="px-6 py-4">{`${element.isAdmin}`}</td>
+                                <td className="px-6 py-4"><DropDown id={`Action_${element.id}`} handleDelete = {()=>{handleDelete(element.id)}}/></td>
 
                             </tr>
                         })}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Heading from '../Components/Common/Heading'
-import { productData } from '../JSON-data/ProductData'
 import { useNavigate } from 'react-router-dom'
 const AddProducts = () => {
     let navigate = useNavigate()
@@ -18,10 +17,10 @@ const AddProducts = () => {
         navigate('/products/')
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         let product_data = JSON.parse(localStorage.getItem('ProductList')) || []
         setUpdatedProduct([...product_data])
-    },[updatedProduct])
+    }, [updatedProduct])
 
 
     return (
