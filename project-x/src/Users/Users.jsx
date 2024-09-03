@@ -5,6 +5,7 @@ import { Button } from '../Components/Common/Button'
 import { Link } from 'react-router-dom'
 import Heading from '../Components/Common/Heading'
 import DropDown from '../Components/Common/DropDown'
+import { toast } from 'react-toastify'
 const Users = () => {
     const [userList, setUserList] = useState([])
     const [filterList, setFilterList] = useState([])
@@ -34,6 +35,7 @@ const Users = () => {
 
         })
         setUserList([...copyData])
+        toast.success("User deleted successful");
         localStorage.setItem('UserList', JSON.stringify([...copyData]))
     }
 

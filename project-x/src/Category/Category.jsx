@@ -3,6 +3,8 @@ import Heading from '../Components/Common/Heading'
 import { Button } from '../Components/Common/Button'
 import { SearchField } from '../Components/Common/InputField'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import DropDown from '../Components/Common/DropDown'
 const Category = () => {
     const [category,setCategory] = useState([])
     const [filterCategory,setFilterCategory] = useState([])
@@ -28,6 +30,20 @@ const Category = () => {
         })
         setFilterCategory(filterSearch)
     }
+
+    const handleEmpDelete = (id)=>{
+        const deleteData = category.filter((item)=>{
+            if(item.id != id){
+
+                return item
+            }
+        })
+        setCategory([...deleteData])
+        toast.success("Category deleted successful");
+        localStorage.setItem('CategoryList', JSON.stringify([...deleteData]))
+    }
+
+
   return (
    <>
     <div className='w-full'>
@@ -68,6 +84,7 @@ const Category = () => {
                                 <td className="px-6 py-4">{element.name}</td>
                                 <td className="px-6 py-4">{element.categoryName}</td>
                                 <td className="px-6 py-4">{element.createdOn}</td>
+                                <td className="px-6 py-4" ><DropDown id= {`Action_${element.id}`} handleDelete={()=>{handleEmpDelete(element.id)}}/></td>
                             </tr>
                         })}
 

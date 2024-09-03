@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Heading from '../Components/Common/Heading'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
+
 const AddProducts = () => {
     let navigate = useNavigate()
     const [addProduct, setAddProduct] = useState({})
@@ -15,6 +17,7 @@ const AddProducts = () => {
         setUpdatedProduct([...updatedProduct])
         localStorage.setItem('ProductList', JSON.stringify([...updatedProduct, addProduct]))
         navigate('/products/')
+        toast.success("Product added successful");
     }
 
     useEffect(() => {

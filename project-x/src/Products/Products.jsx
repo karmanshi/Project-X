@@ -3,6 +3,8 @@ import Heading from '../Components/Common/Heading'
 import { Link } from 'react-router-dom'
 import { Button } from '../Components/Common/Button'
 import { SearchField } from '../Components/Common/InputField'
+import DropDown from '../Components/Common/DropDown'
+import { toast } from 'react-toastify'
 
 const Products = () => {
     const [products, setProducts] = useState([])
@@ -25,6 +27,18 @@ const Products = () => {
             }
         })
         setFilterProduct(filterSearch)
+    }
+
+    const handleEmpDelete = (id)=>{
+        const deleteData = products.filter((item)=>{
+            if(item.id != id){
+                return item
+            }
+        })
+        setProducts([...deleteData])
+        toast.success("Data deleted successful");
+        localStorage.setItem('ProductList', JSON.stringify([...deleteData]))
+
     }
 
     return (
@@ -56,6 +70,9 @@ const Products = () => {
                             <th scope="col" className="px-6 py-3">
                                 Quantity
                             </th>
+                            <th scope="col" className="px-6 py-3">
+                                
+                            </th>
 
                         </tr>
                     </thead>
@@ -66,6 +83,7 @@ const Products = () => {
                                 <td className="px-6 py-4">{element.productName}</td>
                                 <td className="px-6 py-4">{element.price}</td>
                                 <td className="px-6 py-4">{element.quantity}</td>
+                                <td className="px-6 py-4" ><DropDown id= {`Action_${element.id}`} handleDelete={()=>{handleEmpDelete(element.id)}}/></td>
                             </tr>
                         })}
 

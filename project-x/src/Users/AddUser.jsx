@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import Heading from '../Components/Common/Heading'
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 const AddUser = () => {
     let navigate = useNavigate()
@@ -18,6 +19,7 @@ const AddUser = () => {
         setUpdateUser([...updateUser, data])
         localStorage.setItem('UserList', JSON.stringify([...updateUser, addUser]))
         navigate('/users/')
+        toast.success("User added successful");
                                          
 
     }

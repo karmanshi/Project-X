@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Heading from '../Components/Common/Heading'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const AddCategory = () => {
     let navigate = useNavigate()
@@ -16,6 +17,7 @@ const AddCategory = () => {
         setUpdatedCategory([...updatedCategory])
         localStorage.setItem('CategoryList', JSON.stringify([...updatedCategory, addCategory]))
         navigate('/category/')
+        toast.success('Category Added sucessfully')
     }
 
     useEffect(()=>{
