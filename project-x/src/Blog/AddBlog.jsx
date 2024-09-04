@@ -6,20 +6,37 @@ const AddBlog = () => {
   let navigate = useNavigate()
   const [addBlog, setAddBlog] = useState('')
   const [blogHeading, setBlogHeading] = useState('')
+  const [imageUrl,setImageUrl] = useState('')
   const [updatedBlog, setUpdatedBlog] = useState([])
 
   const handleChange = (e) => {
     setAddBlog(e.target.value)
   }
 
+
+  const checkValidation = (value, field) => {
+
+    if (value == '') {
+      toast.error(`${field} is required`)
+      return false
+    }
+    return true
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    let data = { content: addBlog, heading: blogHeading }
-    setUpdatedBlog([...updatedBlog, data])
-    localStorage.setItem('Blog', JSON.stringify([...updatedBlog, data]))
-    toast.success('Blog Added sucessfully')
-    navigate('/displayBlog/')
-    setAddBlog('')
+    let resp1 = checkValidation(blogHeading, "Blog Heading")
+    let resp2 = checkValidation(addBlog, "Content")
+    let dateTime = new Date();
+    dateTime = dateTime.toDateString()
+    if (resp1 && resp2 == true) {
+      let data = { content: addBlog, heading: blogHeading,time:dateTime,img:imageUrl  }
+      setUpdatedBlog([...updatedBlog, data])
+      localStorage.setItem('Blog', JSON.stringify([...updatedBlog, data]))
+      toast.success('Blog Added sucessfully')
+      navigate('/blog/list')
+      setAddBlog('')
+    }
   }
 
   useEffect(() => {
@@ -30,19 +47,19 @@ const AddBlog = () => {
 
   }, [])
 
+
   return (
-   
+
 
     <div >
       <Heading heading="Write a Blogs" />
-      <main className="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4 mt-3">
-        <div className="w-full pb-8  sm:max-w-xl sm:rounded-lg">
+      <main className="w-full min-h-screen py-1 mt-3">
+        <div className="w-full pb-8 ">
 
-          <div className="grid max-w-2xl">
+          <div className="grid ">
 
             <div className=" text-[#202142]">
-
-
+           
               <div className="mb-2 sm:mb-6">
                 <label
                   htmlFor="heading"
@@ -53,10 +70,12 @@ const AddBlog = () => {
                 <div class="relative">
 
                   <input
+                    type='text'
                     id='heading'
                     name='heading'
                     value={blogHeading}
                     onChange={(e) => { setBlogHeading(e.target.value) }}
+
                     className="bg-indigo-50 border border-indigo-300 text-black-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5  "
                     placeholder="Heading"
                   />
@@ -64,6 +83,28 @@ const AddBlog = () => {
 
               </div>
 
+              <div className="mb-2 sm:mb-6">
+                <label
+                  htmlFor="img"
+                  className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                >
+                  Image-URL
+                </label>
+                <div class="relative">
+
+                  <input
+                  type='text'
+                    id='img'
+                    name='img'
+                    value={imageUrl}
+                    onChange={(e) => { setImageUrl(e.target.value) }}
+
+                    className="bg-indigo-50 border border-indigo-300 text-black-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5  "
+                    placeholder="Image-url"
+                  />
+                </div>
+
+              </div>
 
 
               <div className="mb-2 sm:mb-6">
@@ -71,27 +112,27 @@ const AddBlog = () => {
                   htmlFor="editor"
                   className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
                 >
-                  
+                  Content
                 </label>
                 <textarea
                   name='editor'
                   id="editor"
-                  rows={8}
+                  rows={13}
                   value={addBlog}
                   onChange={handleChange}
-                  className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                  placeholder='Write an article......'
+                  className=" bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
+                  placeholder='Write a Blog......'
 
                 />
               </div>
 
 
             </div>
-            <div className="flex justify-end">
+            <div className="flex justify-start">
               <button
                 onClick={handleSubmit}
                 type="button"
-                className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
+                className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-8 py-3 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
               >
                 Publish
               </button>

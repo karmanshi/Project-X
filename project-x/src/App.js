@@ -17,6 +17,7 @@ import EmployeeDetails from './Employee/EmployeeDetails';
 import AddEmployee from './Employee/AddEmployee';
 import AddBlog from './Blog/AddBlog';
 import DispalyBlog from './Blog/DispalyBlog';
+import BlogDetails from './Blog/BlogDetails';
 
 function App() {
   return (
@@ -36,8 +37,9 @@ function App() {
           <Route path="/employee/" element={<Employee />} />
           <Route path='/employee/:employeeId' element={<EmployeeDetails/>}/>
           <Route path="/employee/add" element={<AddEmployee />} />
-          <Route path="/addBlog/" element={<AddBlog />} />
-          <Route path="/displayBlog/" element={<DispalyBlog />} />
+          <Route path="/blog/add" element={<AddBlog />} />
+          <Route path="/blog/list" element={<DispalyBlog />} />
+          <Route path='/blog/:blogId' element={<BlogDetails/>}/>
         </Route>
       </Routes>
    </>

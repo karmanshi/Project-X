@@ -5,6 +5,7 @@ import { Button } from '../Components/Common/Button'
 import { Link } from 'react-router-dom'
 import Heading from '../Components/Common/Heading'
 
+
 const DispalyBlog = () => {
   const [displayBlog, setDisplayBlog] = useState([])
   const [filterBlog, setFilterBlog] = useState([])
@@ -13,7 +14,7 @@ const DispalyBlog = () => {
     setDisplayBlog(data)
     setFilterBlog(data)
 
-  }, [])
+  }, [displayBlog])
 
   const handleSearch = (e) => {
     let val = e.target.value
@@ -47,20 +48,31 @@ const DispalyBlog = () => {
         <Heading heading="Blogs" />
         <div className='flex my-3.5'>
           <div className='flex-1 mb-2'>
-            <SearchField onChange={handleSearch} searchValue="Search Products......" />
+            <SearchField onChange={handleSearch} searchValue="Search Blogs......" />
           </div>
           <div className='flex-2 flex justify-end'>
-            <Link to="/addBlog/">
+            <Link to="/blog/add">
               <Button ButtonText="Add Blogs" />
             </Link>
           </div>
         </div>
         <div className='grid grid-cols-3 gap-10'>  {filterBlog.map((element, index) => {
-          return <div className="bg-zinc-300 flex flex-col w-full max-h-64 min-h-64 p-6 bg-gray-100 hover:bg-gray-50	 max-w-md mx-auto rounded-lg hover:shadow-md hover:scale-110 " key={index + 1}>
-            <h1 className='text-2xl'>{element.heading}</h1>
-            <p className="flex-grow text-gray-600">{element.content}
+          return <div className="bg-zinc-300 flex flex-col w-full max-h-96 min-h-96 p-6 bg-zinc-200	 hover:bg-gray-50	 max-w-md mx-auto rounded-lg hover:shadow-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300  hover:scale-110 " key={index + 1}>
+            <img className='w-full h-32' src= {element.img}/>
+            <h1 className='mt-2 text-2xl'>{element.heading}</h1>
+            <p className="flex-grow text-gray-600 py-2 text-left  ">{element.content.substring(0, 100)}....
             </p>
-            <button type="button" className=" text-white bg-red-600 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm py-2 px-2  text-center w-24 dark:bg-red-400 dark:hover:bg-red-400 dark:focus:ring-red-900  mt-auto" onClick={() => handleDelete(index)}>Delete</button>
+            <div className='flex mt-auto gap-4'>
+              <div className='flex-1'>
+                <button type="button" className=" text-white bg-red-600 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm py-2 px-2  text-center w-24 " onClick={() => handleDelete(index)}>Delete</button>
+              </div>
+
+              <div className='flex-1 flex justify-end'>
+                <Link to={`/blog/${index}`}>
+                <button type="button" className=" text-white bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm py-2 px-2  text-center w-24 " >Read</button></Link>
+              </div>
+            </div>
+
           </div>
         })}</div>
 
