@@ -21,9 +21,10 @@ const AddProducts = () => {
     }
 
     useEffect(() => {
+        document.title = 'Add-Product'
         let product_data = JSON.parse(localStorage.getItem('ProductList')) || []
         setUpdatedProduct([...product_data])
-    }, [updatedProduct])
+    }, [])
 
 
     return (

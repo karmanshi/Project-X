@@ -1,11 +1,33 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Heading from '../Components/Common/Heading'
+import { toast } from 'react-toastify'
 
 const ProductDetails = () => {
+    let navigate = useNavigate()
     const { productId } = useParams()
     const [products, setProducts] = useState({})
+
+    const handleUpdate = (e)=>{
+        e.preventDefault()
+        let update_product = JSON.parse(localStorage.getItem('ProductList'))
+        update_product =  update_product.map((ele) => {
+            if (productId != ele.id) {
+                return ele
+            }
+            else{
+                return products
+            }
+        })
+        localStorage.setItem('ProductList',JSON.stringify(update_product))
+        navigate('/products/')
+        toast.success('Product updated sucessfully')
+    }
+
+    const handlechange =(e)=>{
+        setProducts({...products,[e.target.name]:e.target.value})
+    }
 
     useEffect(() => {
         document.title = 'Product Details'
@@ -16,8 +38,8 @@ const ProductDetails = () => {
                 return ele
             }
         })
-
     }, [])
+    
     return (
         <div >
             <Heading heading={`Product List : ${productId}`} />
@@ -40,6 +62,7 @@ const ProductDetails = () => {
                                         type="text"
                                         name='productName'
                                         id="productName"
+                                        onChange={handlechange}
                                         className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
                                         placeholder="Product Name"
 
@@ -61,10 +84,9 @@ const ProductDetails = () => {
                                         name='category'
                                         type="text"
                                         id="category"
+                                        onChange={handlechange}
                                         className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
                                         placeholder="Category"
-
-                                        required=""
                                     />
                                 </div>
 
@@ -82,6 +104,7 @@ const ProductDetails = () => {
                                         name='price'
                                         type="text"
                                         id="price"
+                                        onChange={handlechange}
                                         className="bg-indigo-50 border border-indigo-300 text-black-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5    "
                                         placeholder="Price"
                                         value={products.price}
@@ -104,8 +127,8 @@ const ProductDetails = () => {
                                         name='quantity'
                                         type="text"
                                         id="quantity"
+                                        onChange={handlechange}
                                         className="bg-indigo-50 border border-indigo-300 text-black-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5  "
-
                                         placeholder="Quantity"
                                         value={products.quantity}
 
@@ -127,8 +150,8 @@ const ProductDetails = () => {
                                         name='soldItems'
                                         type="text"
                                         id="soldItems"
+                                        onChange={handlechange}
                                         className="bg-indigo-50 border border-indigo-300 text-black-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-
                                         placeholder="Items"
                                         value={products.soldItems}
 
@@ -150,11 +173,22 @@ const ProductDetails = () => {
                                     cols="5"
                                     name="description"
                                     id="description"
+                                    onChange={handlechange}
                                     className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
                                     value={products.description}
                                     placeholder='Description'
 
                                 />
+                            </div>
+
+                            <div className="flex justify-end">
+                                <button
+                                    onClick={handleUpdate}
+                                    type="button"
+                                    className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
+                                >
+                                    Update
+                                </button>
                             </div>
                         </div>
 

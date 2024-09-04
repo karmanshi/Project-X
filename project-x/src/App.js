@@ -18,6 +18,7 @@ import AddEmployee from './Employee/AddEmployee';
 import AddBlog from './Blog/AddBlog';
 import DispalyBlog from './Blog/DispalyBlog';
 import BlogDetails from './Blog/BlogDetails';
+import UpdateBlog from './Blog/UpdateBlog';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/blog/add" element={<AddBlog />} />
           <Route path="/blog/list" element={<DispalyBlog />} />
           <Route path='/blog/:blogId' element={<BlogDetails/>}/>
+          <Route path='/blog/updated/:blogId' element={<UpdateBlog/>}/>
         </Route>
       </Routes>
    </>

@@ -10,13 +10,6 @@ const Users = () => {
     const [userList, setUserList] = useState([])
     const [filterList, setFilterList] = useState([])
 
-    useEffect(() => {
-        document.title = 'Users List'
-        let user_data = JSON.parse(localStorage.getItem("UserList"))||[]
-        setUserList([...user_data]) 
-        setFilterList([...user_data])
-    }, [userList])
-
     const handleSearch =(e)=>{
         let searchVal = e.target.value
         if (searchVal === "") { setFilterList(userList); return; }
@@ -32,12 +25,18 @@ const Users = () => {
             if (item.id != id) {
                 return item
             }
-
         })
-        setUserList([...copyData])
+        setFilterList([...copyData])
         toast.success("User deleted successful");
         localStorage.setItem('UserList', JSON.stringify([...copyData]))
     }
+    
+    useEffect(() => {
+        document.title = 'Users List'
+        let user_data = JSON.parse(localStorage.getItem("UserList"))||[]
+        setUserList([...user_data]) 
+        setFilterList([...user_data])
+    }, [])
 
 
 

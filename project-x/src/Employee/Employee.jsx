@@ -11,12 +11,6 @@ const Employee = () => {
     const [empData, setEmpData] = useState([])
     const [filterData, setFilterData] = useState([])
 
-    useEffect(() => {
-        let save_empData = JSON.parse(localStorage.getItem('EmployeeList')) || []
-        setEmpData([...save_empData])
-        setFilterData([...save_empData])
-    },[empData])
-
     const handleSearch = (e) => {
         let setVal = e.target.value
         if (setVal == '') {
@@ -29,21 +23,26 @@ const Employee = () => {
 
         })
         setFilterData(filterSearch)
-        
+
     }
 
-    const handleEmpDelete = (id) =>{
+    const handleEmpDelete = (id) => {
         const copyData = empData.filter((item) => {
             if (item.emp_Id != id) {
                 return item
             }
-
         })
-        setEmpData([...copyData])
+        setFilterData([...copyData])
         toast.success("Data deleted successful");
         localStorage.setItem('EmployeeList', JSON.stringify([...copyData]))
-        
     }
+
+    useEffect(() => {
+        document.title = 'Employee-List'
+        let save_empData = JSON.parse(localStorage.getItem('EmployeeList')) || []
+        setEmpData([...save_empData])
+        setFilterData([...save_empData])
+    }, [])
 
 
     return (
@@ -80,10 +79,8 @@ const Employee = () => {
                                     Job-Title
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    
-                                </th>
-                                
 
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,7 +91,7 @@ const Employee = () => {
                                     <td className="px-6 py-4">{element.emp_email}</td>
                                     <td className="px-6 py-4">{element.emp_Number}</td>
                                     <td className="px-6 py-4">{element.emp_jobTitle}</td>
-                                    <td className="px-6 py-4" ><DropDown id= {`Action_${element.emp_Id}`} handleDelete={()=>{handleEmpDelete(element.emp_Id)}}/></td>
+                                    <td className="px-6 py-4" ><DropDown id={`Action_${element.emp_Id}`} handleDelete={() => { handleEmpDelete(element.emp_Id) }} /></td>
                                 </tr>
                             })}
 

@@ -15,7 +15,6 @@ const AddBlog = () => {
 
 
   const checkValidation = (value, field) => {
-
     if (value == '') {
       toast.error(`${field} is required`)
       return false
@@ -31,7 +30,6 @@ const AddBlog = () => {
     dateTime = dateTime.toDateString()
     if (resp1 && resp2 == true) {
       let data = { content: addBlog, heading: blogHeading,time:dateTime,img:imageUrl  }
-      setUpdatedBlog([...updatedBlog, data])
       localStorage.setItem('Blog', JSON.stringify([...updatedBlog, data]))
       toast.success('Blog Added sucessfully')
       navigate('/blog/list')
@@ -40,11 +38,11 @@ const AddBlog = () => {
   }
 
   useEffect(() => {
+    document.title = 'Add-Blogs'
     const blog = localStorage.getItem('Blog');
     if (blog) {
       setUpdatedBlog([...JSON.parse(blog)]); // Parse the array
     }
-
   }, [])
 
 

@@ -20,14 +20,13 @@ const AddUser = () => {
         localStorage.setItem('UserList', JSON.stringify([...updateUser, addUser]))
         navigate('/users/')
         toast.success("User added successful");
-                                         
-
     }
 
     useEffect(() => {
+        document.title = 'Add-User'
         let user_data = JSON.parse(localStorage.getItem('UserList')) || []
         setUpdateUser([...user_data])
-    }, [updateUser])
+    }, [])
 
     return (
         <>

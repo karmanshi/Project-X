@@ -17,21 +17,20 @@ const AddEmployee = () => {
         setUpdatedEmp([...updatedEmp])
         localStorage.setItem('EmployeeList', JSON.stringify([...updatedEmp, employeData]))
         navigate('/employee/')
-        toast.success("Employee Detail Added");
+        toast.success("Employee Added");
     }
 
     useEffect(() => {
+        document.title = 'Add-Employee'
         let emp_data = JSON.parse(localStorage.getItem('EmployeeList')) || []
         setUpdatedEmp([...emp_data])
-    }, [updatedEmp])
+    }, [])
     return (
         <div >
             <Heading heading="Add Employee" />
             <main className="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4 mt-3">
                 <div className="w-full pb-8  sm:max-w-xl sm:rounded-lg">
-
                     <div className="grid max-w-2xl">
-
                         <div className=" text-[#202142]">
                             <div className="flex flex-col items-center w-full mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6">
                                 <div className="w-full">
@@ -49,10 +48,8 @@ const AddEmployee = () => {
                                         className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
                                         placeholder="Employee Id"
                                         onChange={handleChange}
-
                                     />
                                 </div>
-
                             </div>
 
                             <div className="flex flex-col items-center w-full mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6">
@@ -71,7 +68,6 @@ const AddEmployee = () => {
                                         className="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
                                         placeholder="Employee Name"
                                         onChange={handleChange}
-
                                     />
                                 </div>
 
@@ -105,7 +101,6 @@ const AddEmployee = () => {
                                     Phone Number
                                 </label>
                                 <div class="relative">
-
                                     <input
                                         name='emp_Number'
                                         type="text"
@@ -114,10 +109,8 @@ const AddEmployee = () => {
                                         placeholder="Phone Number"
                                         value={employeData.emp_Number}
                                         onChange={handleChange}
-
                                     />
                                 </div>
-
                             </div>
 
                             <div className="mb-2 sm:mb-6">
@@ -128,20 +121,16 @@ const AddEmployee = () => {
                                     Job-Title
                                 </label>
                                 <div class="relative">
-
                                     <input
                                         name='emp_jobTitle'
                                         type="text"
                                         id="emp_jobTitle"
                                         className="bg-indigo-50 border border-indigo-300 text-black-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5  "
-
                                         placeholder="Job-Title"
                                         value={employeData.emp_jobTitle}
                                         onChange={handleChange}
-
                                     />
                                 </div>
-
                             </div>
 
                         </div>
@@ -156,7 +145,6 @@ const AddEmployee = () => {
                         </div>
                     </div>
                 </div>
-
             </main>
         </div>
     )

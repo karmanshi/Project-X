@@ -10,12 +10,6 @@ const Products = () => {
     const [products, setProducts] = useState([])
     const [filterProduct, setFilterProduct] = useState([])
 
-    useEffect(() => {
-        let products_data = JSON.parse(localStorage.getItem('ProductList')) || []
-        setProducts([...products_data])
-        setFilterProduct([...products_data])
-    }, [])
-
     const handleSearch = (e) => {
         let searchVal = e.target.value
         if (searchVal == '') {
@@ -35,11 +29,17 @@ const Products = () => {
                 return item
             }
         })
-        setProducts([...deleteData])
+        setFilterProduct([...deleteData])
         toast.success("Data deleted successful");
         localStorage.setItem('ProductList', JSON.stringify([...deleteData]))
-
     }
+
+    useEffect(() => {
+        document.title = 'Product-List'
+        let products_data = JSON.parse(localStorage.getItem('ProductList')) || []
+        setProducts([...products_data])
+        setFilterProduct([...products_data])
+    }, [])
 
     return (
         <div className='w-full'>
