@@ -40,7 +40,7 @@ const AddUser = () => {
                             <div className=" text-[#202142]">
                                 <div className="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0">
                                     <img
-                                        className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
+                                        className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 "
                                         src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
                                         alt="Bordered avatar"
                                     />
@@ -63,7 +63,7 @@ const AddUser = () => {
                                     <div className="w-full">
                                         <label
                                             htmlFor="first_name"
-                                            className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                            className="block mb-2 text-sm font-medium text-indigo-900"
                                         >
                                             Your full name
                                         </label>
@@ -84,13 +84,13 @@ const AddUser = () => {
                                 <div className="mb-2 sm:mb-6">
                                     <label
                                         htmlFor="email"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900 "
                                     >
                                         Your email
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                                            <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
                                                 <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
                                                 <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
                                             </svg>
@@ -111,7 +111,7 @@ const AddUser = () => {
                                     <div className="w-full">
                                         <label
                                             htmlFor="username"
-                                            className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                            className="block mb-2 text-sm font-medium text-indigo-900 "
                                         >
                                             Your User Name
                                         </label>
@@ -132,7 +132,7 @@ const AddUser = () => {
                                 <div className="mb-2 sm:mb-6">
                                     <label
                                         htmlFor="gender"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900"
                                     >
                                         Gender
                                     </label>
@@ -153,13 +153,13 @@ const AddUser = () => {
                                 <div className="mb-2 sm:mb-6">
                                     <label
                                         htmlFor="mobileNumber"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900"
                                     >
                                         Mobile Number
                                     </label>
                                     <div class="relative">
                                         <div class="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
+                                            <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
                                                 <path d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z" />
                                             </svg>
                                         </div>
@@ -180,7 +180,7 @@ const AddUser = () => {
                                     <div className="w-full">
                                     <label
                                         htmlFor="admin"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900 "
                                     >
                                         IsAdmin
                                     </label>
@@ -202,7 +202,7 @@ const AddUser = () => {
                                 <div className="mb-2 sm:mb-6">
                                     <label
                                         htmlFor="lastActive"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900 "
                                     >
                                         Last Active
                                     </label>
@@ -220,7 +220,7 @@ const AddUser = () => {
                                 <button
                                     onClick={handleSubmit}
                                     type="button"
-                                    className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
+                                    className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                                 >
                                     Save
                                 </button>

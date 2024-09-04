@@ -41,7 +41,7 @@ const AddProducts = () => {
                                     <div className="w-full">
                                         <label
                                             htmlFor="id"
-                                            className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                            className="block mb-2 text-sm font-medium text-indigo-900"
                                         >
                                             Product Id
                                         </label>
@@ -63,7 +63,7 @@ const AddProducts = () => {
                                     <div className="w-full">
                                         <label
                                             htmlFor="productName"
-                                            className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                            className="block mb-2 text-sm font-medium text-indigo-900 "
                                         >
                                             Product Name
                                         </label>
@@ -85,7 +85,7 @@ const AddProducts = () => {
                                     <div className="w-full">
                                         <label
                                             htmlFor="category"
-                                            className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                            className="block mb-2 text-sm font-medium text-indigo-900 "
                                         >
                                             Category
                                         </label>
@@ -104,7 +104,7 @@ const AddProducts = () => {
                                 <div className="mb-2 sm:mb-6">
                                     <label
                                         htmlFor="price"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900 "
                                     >
                                         Price
                                     </label>
@@ -127,7 +127,7 @@ const AddProducts = () => {
                                 <div className="mb-2 sm:mb-6">
                                     <label
                                         htmlFor="quantity"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900 "
                                     >
                                         Quantity
                                     </label>
@@ -151,7 +151,7 @@ const AddProducts = () => {
                                 <div className="mb-2 sm:mb-6">
                                     <label
                                         htmlFor="soldItems"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900 "
                                     >
                                         Sold-Items
                                     </label>
@@ -174,7 +174,7 @@ const AddProducts = () => {
                                 <div className="mb-2 sm:mb-6">
                                     <label
                                         htmlFor="description"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900 "
                                     >
                                         Description
                                     </label>
@@ -198,7 +198,7 @@ const AddProducts = () => {
                                 <button
                                     onClick={handleSubmit}
                                     type="button"
-                                    className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
+                                    className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                                 >
                                     Save
                                 </button>

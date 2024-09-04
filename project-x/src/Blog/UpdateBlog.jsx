@@ -69,7 +69,7 @@ const UpdateBlog = () => {
                                 <div className="mb-2 sm:mb-6">
                                     <label
                                         htmlFor="heading"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900"
                                     >
                                         Heading
                                     </label>
@@ -90,7 +90,7 @@ const UpdateBlog = () => {
                                 <div className="mb-2 sm:mb-6">
                                     <label
                                         htmlFor="img"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900 "
                                     >
                                         Image-URL
                                     </label>
@@ -111,7 +111,7 @@ const UpdateBlog = () => {
                                 <div className="mb-2 sm:mb-6">
                                     <label
                                         htmlFor="content"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900 "
                                     >
                                         Content
                                     </label>
@@ -131,7 +131,7 @@ const UpdateBlog = () => {
                                 <button
                                     onClick={handleSubmit}
                                     type="button"
-                                    className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-8 py-3 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
+                                    className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-8 py-3 text-center "
                                 >
                                     Update
                                 </button>

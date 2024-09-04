@@ -60,8 +60,8 @@ const Employee = () => {
                     </div>
                 </div>
                 <div className="h-96 overflow-y-auto">
-                    <table className="w-full max-h-80 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead className="sticky top-0 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table className="w-full max-h-80 text-sm text-left rtl:text-right text-gray-500 ">
+                        <thead className="sticky top-0 text-xs text-gray-700 uppercase bg-gray-50 ">
                             <tr>
                                 <th scope="col" className="px-6 py-3">
                                     Employee-Id
@@ -85,7 +85,7 @@ const Employee = () => {
                         </thead>
                         <tbody>
                             {filterData.map((element) => {
-                                return <tr key={element.emp_Id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                return <tr key={element.emp_Id} className="odd:bg-white even:bg-gray-50 border-b ">
                                     <td className="px-6 py-4"><Link to={`${element.emp_Id}`}>{element.emp_Id}</Link></td>
                                     <td className="px-6 py-4">{element.emp_Name}</td>
                                     <td className="px-6 py-4">{element.emp_email}</td>

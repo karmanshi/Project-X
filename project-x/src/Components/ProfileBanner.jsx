@@ -10,7 +10,7 @@ const ProfileBanner = () => {
           />
           <label
             htmlFor="user-menu-toggle"
-            className="flex cursor-pointer text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            className="flex cursor-pointer text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300"
           >
             <span className="sr-only">Open user menu</span>
             <img
@@ -21,12 +21,12 @@ const ProfileBanner = () => {
           </label>
   
           {/* Dropdown menu */}
-          <div className="absolute right-0 z-50 hidden peer-checked:block my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
+          <div className="absolute right-0 z-50 hidden peer-checked:block my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow ">
             <div className="px-4 py-3">
-              <span className="block text-sm text-gray-900 dark:text-white">
+              <span className="block text-sm text-gray-900">
                 Bonnie Green
               </span>
-              <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
+              <span className="block text-sm text-gray-500 truncate">
                 name@flowbite.com
               </span>
             </div>
@@ -34,7 +34,7 @@ const ProfileBanner = () => {
               <li>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 >
                   Dashboard
                 </a>
@@ -42,7 +42,7 @@ const ProfileBanner = () => {
               <li>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 >
                   Settings
                 </a>
@@ -50,7 +50,7 @@ const ProfileBanner = () => {
               <li>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
                 >
                   Earnings
                 </a>
@@ -58,7 +58,7 @@ const ProfileBanner = () => {
               <li>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 "
                 >
                   Sign out
                 </a>

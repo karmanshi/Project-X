@@ -36,7 +36,7 @@ const AddEmployee = () => {
                                 <div className="w-full">
                                     <label
                                         htmlFor="emp_Id"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900 "
                                     >
                                         Employee Id
                                     </label>
@@ -56,7 +56,7 @@ const AddEmployee = () => {
                                 <div className="w-full">
                                     <label
                                         htmlFor="emp_Name"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900 "
                                     >
                                         Employee Name
                                     </label>
@@ -77,7 +77,7 @@ const AddEmployee = () => {
                                 <div className="w-full">
                                     <label
                                         htmlFor="emp_email"
-                                        className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                        className="block mb-2 text-sm font-medium text-indigo-900 "
                                     >
                                         Email-Id
                                     </label>
@@ -96,7 +96,7 @@ const AddEmployee = () => {
                             <div className="mb-2 sm:mb-6">
                                 <label
                                     htmlFor="emp_Number"
-                                    className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                    className="block mb-2 text-sm font-medium text-indigo-900 "
                                 >
                                     Phone Number
                                 </label>
@@ -116,7 +116,7 @@ const AddEmployee = () => {
                             <div className="mb-2 sm:mb-6">
                                 <label
                                     htmlFor="emp_jobTitle"
-                                    className="block mb-2 text-sm font-medium text-indigo-900 dark:text-white"
+                                    className="block mb-2 text-sm font-medium text-indigo-900"
                                 >
                                     Job-Title
                                 </label>
@@ -138,7 +138,7 @@ const AddEmployee = () => {
                             <button
                                 onClick={handleSubmit}
                                 type="button"
-                                className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
+                                className="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                             >
                                 Save
                             </button>
