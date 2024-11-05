@@ -29,6 +29,7 @@ const Products = () => {
                 return item
             }
         })
+        setProducts([...deleteData])
         setFilterProduct([...deleteData])
         toast.success("Data deleted successful");
         localStorage.setItem('ProductList', JSON.stringify([...deleteData]))

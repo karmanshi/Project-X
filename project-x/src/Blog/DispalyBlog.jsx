@@ -29,6 +29,7 @@ const DispalyBlog = () => {
       }
     })
     setFilterBlog([...deleteData])
+    setDisplayBlog([...deleteData])
     toast.success("Blog deleted successful");
     localStorage.setItem('Blog', JSON.stringify([...deleteData]))
   }

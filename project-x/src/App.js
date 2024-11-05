@@ -25,19 +25,23 @@ function App() {
    <>
    <Routes>
         <Route path="/" element={<Navigation />}>
-          <Route path="/body" element={<BodyComponent />} />
+          <Route path="/" element={<Users />} />
           <Route path="/users/" element={<Users />} />
           <Route path="/users/:usersId" element={<UserDetail />} />
           <Route path="/users/add" element={<AddUser />} />
+
           <Route path="/products/" element={<Products />} />
           <Route path="/products/:productId" element={<ProductDetails />} />
           <Route path="/product/add" element={<AddProducts />} />
+
           <Route path="/category/" element={<Category />} />
           <Route path="/category/:categoryId" element={<CategoryDetails />} />
           <Route path="/category/add" element={<AddCategory />} />
+
           <Route path="/employee/" element={<Employee />} />
           <Route path='/employee/:employeeId' element={<EmployeeDetails/>}/>
           <Route path="/employee/add" element={<AddEmployee />} />
+
           <Route path="/blog/add" element={<AddBlog />} />
           <Route path="/blog/list" element={<DispalyBlog />} />
           <Route path='/blog/:blogId' element={<BlogDetails/>}/>

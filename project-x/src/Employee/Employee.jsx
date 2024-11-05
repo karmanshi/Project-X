@@ -33,6 +33,7 @@ const Employee = () => {
             }
         })
         setFilterData([...copyData])
+        setEmpData([...copyData])
         toast.success("Data deleted successful");
         localStorage.setItem('EmployeeList', JSON.stringify([...copyData]))
     }

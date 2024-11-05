@@ -31,6 +31,7 @@ const Category = () => {
             }
         })
         setFilterCategory([...deleteData])
+        setCategory([...deleteData])
         toast.success("Category deleted successful");
         localStorage.setItem('CategoryList', JSON.stringify([...deleteData]))
     }

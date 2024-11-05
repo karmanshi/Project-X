@@ -27,6 +27,7 @@ const Users = () => {
             }
         })
         setFilterList([...copyData])
+        setUserList([...copyData])
         toast.success("User deleted successful");
         localStorage.setItem('UserList', JSON.stringify([...copyData]))
     }
