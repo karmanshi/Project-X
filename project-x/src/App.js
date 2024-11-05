@@ -1,8 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, json } from "react-router-dom";
 import Navigation from './Components/Navigation';
-import BodyComponent from './Components/BodyComponent';
 import Users from './Users/Users';
 import UserDetail from './Users/UserDetail';
 import AddUser from './Users/AddUser';
@@ -19,8 +17,12 @@ import AddBlog from './Blog/AddBlog';
 import DispalyBlog from './Blog/DispalyBlog';
 import BlogDetails from './Blog/BlogDetails';
 import UpdateBlog from './Blog/UpdateBlog';
+import { BlogData } from './JSON-data/BlogData';
 
 function App() {
+  localStorage.setItem('Blog', JSON.stringify(BlogData))
+
+
   return (
    <>
    <Routes>
