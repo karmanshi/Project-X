@@ -17,10 +17,16 @@ import AddBlog from './Blog/AddBlog';
 import DispalyBlog from './Blog/DispalyBlog';
 import BlogDetails from './Blog/BlogDetails';
 import UpdateBlog from './Blog/UpdateBlog';
-import { BlogData } from './JSON-data/BlogData';
+import {
+  BlogData, CategoryListData, EmployeeListData, ProductListData, UserListData
+} from './JSON-data/DummyData';
 
 function App() {
   localStorage.setItem('Blog', JSON.stringify(BlogData))
+  localStorage.setItem('UserList', JSON.stringify(UserListData))
+  localStorage.setItem('EmployeeList', JSON.stringify(EmployeeListData))
+  localStorage.setItem('ProductList', JSON.stringify(ProductListData))
+  localStorage.setItem('CategoryList', JSON.stringify(CategoryListData))
 
 
   return (
